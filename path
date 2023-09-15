@@ -15,7 +15,7 @@ for(i=0 ; command[i] ; i++)
 if (command[i]=='/')
 {
 if(stat(command ,  &am)==0)
-return(strdup(command));
+return(_strdup(command));
 else
 return(NULL);
 }
@@ -26,12 +26,12 @@ return(NULL);
 var=strtok(path , ":")
 while(var)
 {
-cmd=malloc(strlen(var)+ strlen(command) +2);
+cmd=malloc(_strlen(var)+ _strlen(command) +2);
 if(cmd)
 {
-strcpy(cmd , var);
-strcat(cmd , "/");
-strcat(cmd , command);
+_strcpy(cmd , var);
+_strcat(cmd , "/");
+_strcat(cmd , command);
 if (stat(cmd , &am)==0)
 {
 free(path);

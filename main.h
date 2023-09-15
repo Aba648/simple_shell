@@ -3,7 +3,6 @@
 
 /*LIBRARIES*/
 #include <stdio.h>
-#include <stdio.h>
 #include <unistd.h>
 #include <string.h>
 #include <sys/stat.h>
@@ -23,6 +22,8 @@ char *_strcat(char *, char *);
 char *_strcpy(char *, char *);
 int _strcmp(char *, char *);
 int _strlen(char *);
+char *getpath(char *command);
+char *getenv(char *var)
 
 /* GLOBAL VAR*/
 extern char **environ;
