@@ -1,16 +1,16 @@
 #include "main.h"
 /**
 *main - This is the entry point of the program.
-* @argc: Argument count
-* @argv: Argument vector
+* @ac: Argument count
+* @av: Argument vector
 * Return: 0 on success, 1 on error.
 */
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
 	char *lineptr = NULL;
 	char **cmd = NULL;
 	int status = 0;
-	(void) argc;
+	(void) ac;
 	while (1)
 	{
 		if (isatty(STDOUT_FILENO))
@@ -33,7 +33,7 @@ int main(int argc, char **argv)
 			free(lineptr);
 			continue;
 		}
-		status = execute_cmd(cmd, argv);
+		status = execute_cmd(cmd, av);
 	}
 }
 

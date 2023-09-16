@@ -22,8 +22,6 @@ char *_strcat(char *, char *);
 char *_strcpy(char *, char *);
 int _strcmp(char *, char *);
 int _strlen(char *);
-char *getpath(char *command);
-char *getenv(char *var)
 
 /* GLOBAL VAR*/
 extern char **environ;
