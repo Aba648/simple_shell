@@ -1,0 +1,26 @@
+#include "main.h"
+/**
+ * getenv - enviro
+ * @environ:variable.
+ * Return: result.
+ */
+char *getenv(char *var)
+{
+	char *atm , *key , *value , *env ;
+	int i ;
+	for (i=0; environ[i] ; i++)
+	{
+		atm = strdup(environ[i]);
+		key = strtok(atm,"=");
+		if (strcmp(key,var)==0)
+		{
+			value = strtok(NULL , "\n");
+			env = strdup(value);
+			free(atm);
+			return (env);
+		}
+		free(atm);
+		atm=NULL;
+	}
+	return (NULL);
+}
