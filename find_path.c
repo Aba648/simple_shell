@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * getenv - enviro
- * @environ:variable.
+ * _myenv -  prints the current environment
+ * @environ: variable.
  * Return: result.
  */
-char *getenv(char *var)
+char *_myenv(char *var)
 {
 	char *atm , *key , *value , *env ;
 	int i ;

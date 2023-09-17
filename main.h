@@ -17,6 +17,8 @@ char *read_line(void);
 char **tokenizer(char *lineptr);
 int execute_cmd(char **cmd, char **argv);
 void _free(char **arry);
+char *getpath(char *cmd);
+char *_myenv(char *var);
 char *_strdup(const char *);
 char *_strcat(char *, char *);
 char *_strcpy(char *, char *);

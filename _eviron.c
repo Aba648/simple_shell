@@ -1,13 +1,13 @@
 #include "main.h"
 /**
- * path_cmd -  Search In $PATH Excutable Command
+ * path_cmd -  Search PATH of an excutable command
  * cmd: Parsed Input
- * Return: NULL.
+ * Return: NULL
  */
 char *getpath(char *cmd)
 {
 	int i;
-	char *path, *command, *var ;
+	char *path, *command, *var;
 	struct stat am;
 
 	for (i = 0; cmd[i]; i++)
@@ -20,10 +20,10 @@ char *getpath(char *cmd)
 				return (NULL);
 		}
 	}
-	path = getenv("path")
+	path = getenv("PATH");
 		if (!path)
 			return (NULL);
-	var = strtok(path, ":")
+	var = strtok(path, ":");
 		while (var)
 		{
 			command = malloc(_strlen(var)+ _strlen(cmd) +2);
@@ -39,7 +39,8 @@ char *getpath(char *cmd)
 				} 
 				free(command);
 				command = NULL;
-				var = strtok(null, ":");
+				var = strtok(NULL, ":");
 			}
 		}
+		return (NULL);
 }
