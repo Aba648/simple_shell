@@ -26,10 +26,3 @@ char *_myenv(char *var)
 	}
 	return (NULL);
 }
-
-int main()
-{
-	printf("%s\n", _myenv("PATH"));
-	return (0);
-}
-
