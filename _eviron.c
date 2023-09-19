@@ -1,15 +1,14 @@
 #include "main.h"
 /**
- * path_cmd -  Search PATH of an excutable command
+ * get_path - Search path of an excutable command
  * cmd: Parsed Input
  * Return: NULL
  */
-char *getpath(char *cmd)
+char *get_path(char *cmd)
 {
 	int i;
-	char *path, *command, *var;
+	char *path, *full_cmd,*diractory;
 	struct stat am;
-
 	for (i = 0; cmd[i]; i++)
 	{
 		if (cmd[i] == '/')
@@ -20,27 +19,28 @@ char *getpath(char *cmd)
 				return (NULL);
 		}
 	}
-	path = getenv("PATH");
+	path = _myenv("PATH");
 		if (!path)
 			return (NULL);
-	var = strtok(path, ":");
-		while (var)
+		diractory = strtok(path, ":");
+		while (diractory)
 		{
-			command = malloc(_strlen(var)+ _strlen(cmd) +2);
-			if(command)
+			full_cmd = malloc(_strlen(diractory)+ _strlen(cmd) +2);
+			if(full_cmd)
 			{
-				_strcpy(command, var);
-				_strcat(command, "/");
-				_strcat(command, cmd);
-				if (stat(command, &am) == 0)
+				_strcpy(full_cmd, diractory);
+				_strcat(full_cmd, "/");
+				_strcat(full_cmd, cmd);
+				if (stat(full_cmd , &am) == 0)
 				{
 					free(path);
-					return(command);
+					return(full_cmd);
 				} 
-				free(command);
-				command = NULL;
-				var = strtok(NULL, ":");
+				free(full_cmd);
+				full_cmd = NULL;
+				diractory = strtok(NULL, ":");
 			}
 		}
+		free(path);
 		return (NULL);
 }

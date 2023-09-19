@@ -15,10 +15,13 @@
 /*PROTOTYPES*/
 char *read_line(void);
 char **tokenizer(char *lineptr);
-int execute_cmd(char **cmd, char **argv);
+int execute_cmd(char **cmd, char **argv, int idx);
 void _free(char **arry);
-char *getpath(char *cmd);
 char *_myenv(char *var);
+char *get_path(char *cmd);
+void display_error(char *cmd, char *estr, int idx);
+char *_atoi(int i);
+void convert_string(char *str, int num);
 char *_strdup(const char *);
 char *_strcat(char *, char *);
 char *_strcpy(char *, char *);

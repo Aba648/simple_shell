@@ -10,6 +10,7 @@ int main(int ac, char **av)
 	char *lineptr = NULL;
 	char **cmd = NULL;
 	int status = 0;
+	int idx = 0;
 	(void) ac;
 	while (1)
 	{
@@ -27,13 +28,19 @@ int main(int ac, char **av)
 			free(lineptr);
 			exit(status);
 		}
+		idx++;
 		cmd = tokenizer(lineptr);
 		if (!cmd || cmd[0] == NULL)
 		{
 			free(lineptr);
 			continue;
 		}
-		status = execute_cmd(cmd, av);
+		if (_strcmp(cmd[0], "exit") == 0)
+		{
+
+			_free(cmd);
+			exit(status);
+		}
+		status = execute_cmd(cmd, av, idx);
 	}
 }
-

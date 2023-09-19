@@ -1,26 +1,35 @@
 #include "main.h"
 /**
  * _myenv -  prints the current environment
- * @environ: variable.
+ * @var: variable.
  * Return: result.
  */
 char *_myenv(char *var)
 {
-	char *atm , *key , *value , *env ;
-	int i ;
-	for (i=0; environ[i] ; i++)
+	int i;
+	char *tmp, *key;
+	char *value, *env;
+
+	for (i = 0; environ[i]; i++)
 	{
-		atm = strdup(environ[i]);
-		key = strtok(atm,"=");
-		if (strcmp(key,var)==0)
+		tmp = _strdup(environ[i]);
+		key = strtok(tmp, "=");
+		if (_strcmp(key, var) == 0)
 		{
-			value = strtok(NULL , "\n");
-			env = strdup(value);
-			free(atm);
+			value = strtok(NULL, "\n");
+			env = _strdup(value);
+			free(tmp);
 			return (env);
 		}
-		free(atm);
-		atm=NULL;
+		free(tmp);
+		tmp = NULL;
 	}
 	return (NULL);
 }
+
+int main()
+{
+	printf("%s\n", _myenv("PATH"));
+	return (0);
+}
+
