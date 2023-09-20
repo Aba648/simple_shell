@@ -25,10 +25,8 @@ int _builtin(char *cmd)
  */
 void set_builtin(char **cmd, char **av, int *status, int idx)
 {
-	(void) av;
-	(void) idx;
 	if (_strcmp(cmd[0], "exit") == 0)
-		_myexit(cmd, status);
+		_myexit(cmd, av, status, idx);
 	else if (_strcmp(cmd[0], "env") == 0)
 		display_env(cmd, status);
 }
@@ -39,10 +37,34 @@ void set_builtin(char **cmd, char **av, int *status, int idx)
  * Return: exits with a given exit status
  *         (0) if info.argv[0] != "exit
  */
-void _myexit(char **cmd, int *status)
+void _myexit(char **cmd, char **av, int *status, int idx)
 {
+	int exit1 = (*status);
+	char *index;
+	char m[] = ": exit: Illegal number";
+
+	if (cmd [1])
+	{
+		if (positive_num(cmd[1]))
+		{
+			exit1 = _atoi(cmd[1])
+		}
+		else
+		{
+			index = _atoi(idx);
+			write(STDERR_FILENO, av[0], _strlen(av[0]));
+			write(STDERR_FILENO, ": ", 2);
+			write(STDERR_FILENO, index, _strlen(index));
+		       	write(STDERR_FILENO, m, _strlen(m));
+			write(STDERR_FILENO, cmd[1], _strlen(cmd[1]));
+			write(STDERR_FILENO, "\n", 1);
+			free(index);
+			_free(cmd);
+			return;
+		}
+	}
 	_free(cmd);
-	exit(*status);
+	exit(exit1);
 }
 /**
  * display_env - prints the current environment

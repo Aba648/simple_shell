@@ -69,4 +69,22 @@ void convert_string(char *str, int num)
 		f--;
 	}
 }
-
+/**
+ * convert_string - converter function, a clone of itoa
+ * @num: number
+ * @str: string
+ * Return: void
+ */
+int positive_num(char * s)
+{
+	int i;
+	
+	if (!s)
+		return (0);
+	for(i = 0; s[i]; i++)
+	{
+		if (s[i] < '0'; || s[i] > '9')
+			return (0);
+	}
+	return (1);
+}
