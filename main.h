@@ -27,6 +27,10 @@ char *_strcat(char *, char *);
 char *_strcpy(char *, char *);
 int _strcmp(char *, char *);
 int _strlen(char *);
+void hand_built(char **command , char **argv , int status , int idx);
+void bui_env(char **command , int status);
+void exit_bui(char **command , int status);
+
 
 /* GLOBAL VAR*/
 extern char **environ;
