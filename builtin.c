@@ -47,7 +47,7 @@ void _myexit(char **cmd, char **av, int *status, int idx)
 	{
 		if (positive_num(cmd[1]))
 		{
-			exit1 = _atoi(cmd[1])
+			exit1 = _atoi1(cmd[1]);
 		}
 		else
 		{
@@ -60,6 +60,7 @@ void _myexit(char **cmd, char **av, int *status, int idx)
 			write(STDERR_FILENO, "\n", 1);
 			free(index);
 			_free(cmd);
+			(*status) = 2;
 			return;
 		}
 	}

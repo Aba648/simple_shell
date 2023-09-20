@@ -25,6 +25,8 @@ void convert_string(char *str, int num);
 int _builtin(char *cmd);
 void set_builtin(char **cmd, char **av, int *status, int idx);
 void _myexit(char **cmd, char **av, int *status, int idx);
+int positive_num(char *s);
+int _atoi1(char *str);
 void  display_env(char **cmd, int *status);
 char *_strdup(const char *);
 char *_strcat(char *, char *);

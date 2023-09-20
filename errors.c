@@ -70,12 +70,11 @@ void convert_string(char *str, int num)
 	}
 }
 /**
- * convert_string - converter function, a clone of itoa
- * @num: number
- * @str: string
- * Return: void
+ * positive_num - cheking if number is positive
+ * @s: number
+ * Return: 1 , 0
  */
-int positive_num(char * s)
+int positive_num(char *s)
 {
 	int i;
 	
@@ -83,8 +82,25 @@ int positive_num(char * s)
 		return (0);
 	for(i = 0; s[i]; i++)
 	{
-		if (s[i] < '0'; || s[i] > '9')
+		if (s[i] < '0' || s[i] > '9')
 			return (0);
 	}
 	return (1);
+}
+/**
+ * positive_num - cheking if number is positive
+ * @s: number
+ * Return: 1 , 0
+ */
+int _atoi1(char *str)
+{
+        int j;
+        int num = 0;
+
+         for(j = 0; str[j]; j++)
+         {
+                 num *= 10;
+		 num += (str[j] - '0');
+	 }
+	 return (num);
 }
