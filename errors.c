@@ -77,10 +77,10 @@ void convert_string(char *str, int num)
 int positive_num(char *s)
 {
 	int i;
-	
+
 	if (!s)
 		return (0);
-	for(i = 0; s[i]; i++)
+	for (i = 0; s[i]; i++)
 	{
 		if (s[i] < '0' || s[i] > '9')
 			return (0);
@@ -88,19 +88,21 @@ int positive_num(char *s)
 	return (1);
 }
 /**
- * positive_num - cheking if number is positive
- * @s: number
+ * _atoi1 - cheking if number is positive
+ * @str: number
  * Return: 1 , 0
  */
 int _atoi1(char *str)
 {
-        int j;
-        int num = 0;
+	int j;
+	int num = 0;
 
-         for(j = 0; str[j]; j++)
-         {
-                 num *= 10;
-		 num += (str[j] - '0');
-	 }
-	 return (num);
+	for (j = 0; str[j]; j++)
+	{
+		num *= 10;
+		num += (str[j] - '0');
+	}
+	return (num);
 }
+
+

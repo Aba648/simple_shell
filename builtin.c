@@ -9,7 +9,7 @@ int _builtin(char *cmd)
 	char *builts[] = {"exit", "env", "setenv", "cd", NULL};
 	int j;
 
-        for (j = 0; builts[j]; j++)
+	for (j = 0; builts[j]; j++)
 	{
 		if (_strcmp(cmd, builts[j]) == 0)
 			return (1);
@@ -18,9 +18,11 @@ int _builtin(char *cmd)
 }
 
 /**
- * set_built - env  Statue Shell
+ * set_builtin - env  Statue Shell
  * @cmd: Command
- * @argv:Name
+ * @av:Name
+ * @status: input
+ * @idx:input
  * Return: Exit
  */
 void set_builtin(char **cmd, char **av, int *status, int idx)
@@ -34,6 +36,8 @@ void set_builtin(char **cmd, char **av, int *status, int idx)
  * _myexit - exits the shell
  * @cmd: command
  * @status: input
+ * @av: input
+ * @idx: input
  * Return: exits with a given exit status
  *         (0) if info.argv[0] != "exit
  */
@@ -43,7 +47,7 @@ void _myexit(char **cmd, char **av, int *status, int idx)
 	char *index;
 	char m[] = ": exit: Illegal number";
 
-	if (cmd [1])
+	if (cmd[1])
 	{
 		if (positive_num(cmd[1]))
 		{
@@ -55,7 +59,7 @@ void _myexit(char **cmd, char **av, int *status, int idx)
 			write(STDERR_FILENO, av[0], _strlen(av[0]));
 			write(STDERR_FILENO, ": ", 2);
 			write(STDERR_FILENO, index, _strlen(index));
-		       	write(STDERR_FILENO, m, _strlen(m));
+			write(STDERR_FILENO, m, _strlen(m));
 			write(STDERR_FILENO, cmd[1], _strlen(cmd[1]));
 			write(STDERR_FILENO, "\n", 1);
 			free(index);
