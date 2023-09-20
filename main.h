@@ -23,9 +23,9 @@ void display_error(char *cmd, char *estr, int idx);
 char *_atoi(int i);
 void convert_string(char *str, int num);
 int _builtin(char *cmd);
-void set_bultin(char **cmd, char **av, int *status, int idx);
+void set_builtin(char **cmd, char **av, int *status, int idx);
 void _myexit(char **cmd, int *status);
-void  display_env(char **cmd, int *status)
+void  display_env(char **cmd, int *status);
 char *_strdup(const char *);
 char *_strcat(char *, char *);
 char *_strcpy(char *, char *);

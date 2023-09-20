@@ -36,7 +36,7 @@ int main(int ac, char **av)
 			continue;
 		}
 		if (_builtin(cmd[0]))
-			set_bultin(cmd, av, &status, idx);
+			set_builtin(cmd, av, &status, idx);
 		else
 		status = execute_cmd(cmd, av, idx);
 	}
