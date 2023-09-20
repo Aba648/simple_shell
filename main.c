@@ -35,12 +35,9 @@ int main(int ac, char **av)
 			free(lineptr);
 			continue;
 		}
-		if (_strcmp(cmd[0], "exit") == 0)
-		{
-
-			_free(cmd);
-			exit(status);
-		}
+		if (_builtin(cmd[0]))
+			set_bultin(cmd, av, &status, idx);
+		else
 		status = execute_cmd(cmd, av, idx);
 	}
 }
