@@ -1,4 +1,4 @@
-#include "main.h"
+#include "main.hi"
 int _builtin(char *cmd)
 {
 	int i;
@@ -20,10 +20,10 @@ int _builtin(char *cmd)
  */
 void hand_built(char **cmd, char **av, int *status, int idx)
 {
-if(_strcmp(cmd[0],"exit")==0)
-   exit_bui(cmd, status);
-else(_strcmp(cmd[0], "env")==0)
-  bui_env();
+	if (_strcmp(cmd[0],"exit") == 0)
+		_myexit(cmd, status);
+	else (_strcmp(cmd[0], "env") == 0)
+		display_env(cmd, status);
 }
 /**
  * _myexit - exits the shell
@@ -35,10 +35,10 @@ else(_strcmp(cmd[0], "env")==0)
 void _myexit(char **cmd, int *status)
 {
 	_free(cmd);
-	exit(status);
+	exit(*status);
 }
 /**
- * display_env - prints an alias string
+ * display_env - prints the current environment
  * @cmd: the command
  * @status: input
  * Return: nothing
@@ -53,4 +53,5 @@ void  display_env(char **cmd, int *status)
 		write(STDOUT_FILENO, "\n", 1);
 	}
 	_free(cmd);
+	*status = 0;
 }
